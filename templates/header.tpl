@@ -16,6 +16,7 @@
 		<meta name="msapplication-config" content="images/favicons/browserconfig.xml">
 		<meta name="theme-color" content="#f7efe2">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		{foreach from=$stylesheets item=link}
 		  <link href="{$link}" rel="stylesheet">
 		{/foreach}
