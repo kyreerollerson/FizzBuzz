@@ -1,0 +1,299 @@
+/*
+** stylesheet.css
+**
+** main stylesheet for FizzBuzz app
+*/
+
+/*
+** import source files
+*/
+@import "variables";
+@import "mixins";
+
+/*
+** emtire body
+*/
+html,
+body{
+	height: 100%;
+	width: 100%;
+}
+body{
+	padding: 0;
+	margin: 0;
+	@include proxima-nova;
+	color: $dark_grey;
+	font-size: 18px;
+	*{
+		box-sizing: border-box;
+	}
+}
+div#page-container{
+	min-height: 100vh;
+	position: relative;
+	padding-bottom: 70px;
+}
+
+/*
+** menu modal
+*/
+div#menu-modal{
+	height: 100%;
+	width: 100%;
+	background-color: $dark-grey;
+	position: fixed;
+	z-index: 99;
+	display: none;
+	color: $tan;
+	text-align: center;
+	div.bars{
+		height: 3px;
+		margin-top: 120px;
+		font-size: 0;
+		width: 100%;
+		@media screen and (max-width: 767px){
+			margin-top: 100px;
+		}
+		div.bar{
+			vertical-align: top;
+			display: inline-block;
+			width: 33%;
+			height: 3px;
+			&.bar-red{
+				background-color: $red;
+			}
+			&.bar-blue{
+				background-color: $blue;
+				border-left: 1px solid $dark-grey;
+				border-right: 1px solid $dark-grey;
+			}
+			&.bar-green{
+				background-color: $green;
+			}
+		}
+	}
+	h2{
+		@include brandon-grotesque;
+		margin-top: 40px;
+		@media screen and (max-width: 767px){
+			font-size: 25px;
+			margin-top: 30px;
+		}
+	}
+	p{
+		font-size: 20px;
+		max-width: 850px;
+		margin: 20px auto 0 auto;
+		@include proxima-nova;
+		&.button-container{
+			margin-top: 35px;
+			a{
+				@include button($blue, $green);
+			}
+		}
+		@media screen and (max-width: 767px){
+			font-size: 16px;
+			margin-top: 14px;
+			&.button-container{
+				margin-top: 22px;
+			}
+		}
+	}
+}
+
+/*
+** header
+*/
+div#header{
+	min-height: 260px;
+	margin-top: 0;
+	background-color: $tan;
+	padding: 42px 0;
+	@media screen and (max-width: 767px){
+		padding: 30px 0;
+		min-height: 196px;
+	}
+	div.container{
+		position: relative;
+	}
+	div#menu-icon{
+		border: 1px solid $transparent;
+		z-index: 999;
+		height: 40px;
+		width: 40px;
+		position: absolute;
+		right: 15px;
+		padding: 2px;
+		transition: background-color 0.25s ease-in-out, border-color 0.25s ease-in-out;
+		cursor: pointer;
+		div.menu-bar{
+			right: 2px;
+			position: absolute;
+			transition: background-color 0.25s ease-in-out, right 0.25s ease-in-out;
+			height: 1px;
+			background-color: $dark-grey;
+			right: 0;
+			&.menu-bar-top{
+				top: 11px;
+				width: 36px;
+			}
+			&.menu-bar-middle{
+				top: 19px;
+				width: 27px;
+			}
+			&.menu-bar-bottom{
+				top: 28px;
+				width: 18px;
+			}
+		}
+		&.modal-mode{
+			div.menu-bar{
+				background-color: $tan;
+				&.menu-bar-middle{
+					right: 9px;
+				}
+				&.menu-bar-bottom{
+					right: 18px;
+				}
+			}
+		}
+	}
+	div#logo{
+		height: 104px;
+		width: 78px;
+		text-align: center;
+		margin: 0 auto 18px auto;
+		display: none;
+		img{
+			height: 100%;
+			width: 100%;
+			display: block;
+		}
+		@media screen and (max-width: 767px){
+			height: 79px;
+			width: 59px;
+			margin-bottom: 12px;
+		}
+	}
+	h1{
+		@include brandon-grotesque;
+		margin: 0;
+		text-align: center;
+		display: none;
+		@media screen and (max-width: 767px){
+			font-size: 30px;
+		}
+	}
+}
+
+/*
+** mission
+*/
+div#mission{
+	padding: 42px 0;
+	@media screen and (max-width: 767px){
+		padding: 30px 0;
+	}
+	p{
+		font-size: 22px;
+		text-align: center;
+		margin: 0 auto;
+		max-width: 850px;
+		display: none;
+		strong{
+			&.red{
+				color: $red;
+			}
+			&.blue{
+				color: $blue;
+			}
+			&.green{
+				color: $green;
+			}
+		}
+		@media screen and (max-width: 767px){
+			font-size: 18px;
+			padding: 0 20px;
+		}
+	}
+	p#start-container{
+		button{
+			margin-top: 22px;
+			@include pulse-button($red, $blue, $green);
+		}
+	}
+	p#controls-container{
+		button{
+			margin-top: 22px;
+			&#end{
+				@include button($red, $green);
+			}
+			&#restart{
+				@include button($blue, $green);
+			}
+		}
+	}
+}
+
+/*
+** numbers
+*/
+div#numbers-container{
+	padding: 15px 0 42px 0;
+	ul.numbers{
+		list-style-type: none;
+		margin: 0 auto;
+		max-width: 900px;
+		text-align: center;
+		padding: 0;
+		li{
+			margin: 6px;
+			padding: 5px 20px;
+			display: inline-block;
+			font-size: 18px;
+			border: 1px solid $transparent;
+			color: $white;
+			background-color: $dark-grey;
+			font-weight: 400;
+			@media screen and (max-width: 767px){
+				margin: 4px;
+				padding: 3px 14px;
+				font-size: 15px;
+			}
+			&.normal{
+				font-weight: 300;
+				background-color: lighten($dark-grey, 40%);
+			}
+			&.fizz{
+				background-color: $red;
+			}
+			&.buzz{
+				background-color: $blue;
+			}
+			&.fizzbuzz{
+				background-color: $green;
+			}
+		}
+	}
+}
+
+/*
+** footer
+*/
+div#footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color: $dark-grey;
+	color: $white;
+	z-index: 99999;
+	p{
+		height: 50px;
+		margin-bottom: 0;
+		font-size: 14px;
+		@include proxima-nova;
+		line-height: 50px;
+		text-align: center;
+	}
+}

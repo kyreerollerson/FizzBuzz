@@ -1,0 +1,114 @@
+/*
+** mixins.scss
+**
+** resource Sass stylesheet for all mixins and functions
+*/
+
+/*
+** typeface and text-styling mixins
+*/
+@mixin brandon-grotesque{
+	font-family: "brandon-grotesque", sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+	line-height: 1.5em;
+}
+@mixin proxima-nova{
+	font-family: "proxima-nova", sans-serif;
+	font-weight: 300;
+	line-height: 2em;
+}
+
+/*
+** styling mixins
+*/
+@mixin pulse-button($normalState1, $normalState2, $hoverState){
+	@keyframes button-pulse {
+	  from {
+	    background-color: $normalState1;
+	  }
+
+	  to {
+	    background-color: $normalState2;
+	  }
+	}
+	@keyframes button-hover{
+		from{
+			background-color: $hoverState;
+		}
+		to{
+			background-color: $hoverState;
+		}
+	}
+	@keyframes button-disabled{
+		from{
+			background-color: $dark-grey;
+		}
+		to{
+			background-color: $dark-grey;
+		}
+	}
+	color: $white;
+	border-color: $transparent;
+	animation-duration: 1s;
+	animation-name: button-pulse;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	transition: animation-name 0.25s ease-in-out;
+	border-radius: 0;
+	padding: 10px 50px;
+	margin-left: 10px;
+	margin-right: 10px;
+	@include brandon-grotesque;
+	font-weight: 700;
+	&:hover{
+		@media screen and (min-width: 768px){
+			&:not([disabled]){
+				animation-name: button-hover;
+			}
+		}
+	}
+	&[disabled]{
+		opacity: 0.3;
+		animation-name: button-disabled;
+	}
+	&:focus{
+		outline: none;
+	}
+	@media screen and (max-width: 767px){
+		padding: 7px 35px;
+		font-size: 14px;
+	}
+}
+
+@mixin button($normalState, $hoverState){
+	background-color: $normalState;
+	color: $white;
+	border-color: $transparent;
+	transition: background-color 0.25s ease-in-out;
+	border-radius: 0;
+	padding: 10px 50px;
+	margin-left: 10px;
+	margin-right: 10px;
+	@include brandon-grotesque;
+	font-weight: 700;
+	&:hover{
+		@media screen and (min-width: 768px){
+			&:not([disabled]){
+				background-color: $hoverState;
+			}
+		}
+	}
+	&:focus{
+		outline: none;
+	}
+	&[disabled]{
+		opacity: 0.3;
+		background-color: $dark-grey;
+	}
+	@media screen and (max-width: 767px){
+		padding: 7px 35px;
+		font-size: 14px;
+	}
+}

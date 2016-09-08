@@ -1,0 +1,399 @@
+/*
+** stylesheet.css
+**
+** main stylesheet for FizzBuzz app
+*/
+/*
+** import source files
+*/
+/*
+** variables.scss
+**
+** resource Sass stylesheet for all variables
+*/
+/*
+** primary colors
+*/
+/*
+** secndary colors
+*/
+/*
+** mixins.scss
+**
+** resource Sass stylesheet for all mixins and functions
+*/
+/*
+** typeface and text-styling mixins
+*/
+/*
+** styling mixins
+*/
+/*
+** emtire body
+*/
+html,
+body {
+  height: 100%;
+  width: 100%; }
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 300;
+  line-height: 2em;
+  color: #262626;
+  font-size: 18px; }
+  body * {
+    box-sizing: border-box; }
+
+div#page-container {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 70px; }
+
+/*
+** menu modal
+*/
+div#menu-modal {
+  height: 100%;
+  width: 100%;
+  background-color: #262626;
+  position: fixed;
+  z-index: 99;
+  display: none;
+  color: #f7efe2;
+  text-align: center; }
+  div#menu-modal div.bars {
+    height: 3px;
+    margin-top: 120px;
+    font-size: 0;
+    width: 100%; }
+    @media screen and (max-width: 767px) {
+      div#menu-modal div.bars {
+        margin-top: 100px; } }
+    div#menu-modal div.bars div.bar {
+      vertical-align: top;
+      display: inline-block;
+      width: 33%;
+      height: 3px; }
+      div#menu-modal div.bars div.bar.bar-red {
+        background-color: #ef5252; }
+      div#menu-modal div.bars div.bar.bar-blue {
+        background-color: #588cc9;
+        border-left: 1px solid #262626;
+        border-right: 1px solid #262626; }
+      div#menu-modal div.bars div.bar.bar-green {
+        background-color: #4cbb8f; }
+  div#menu-modal h2 {
+    font-family: "brandon-grotesque", sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    line-height: 1.5em;
+    margin-top: 40px; }
+    @media screen and (max-width: 767px) {
+      div#menu-modal h2 {
+        font-size: 25px;
+        margin-top: 30px; } }
+  div#menu-modal p {
+    font-size: 20px;
+    max-width: 850px;
+    margin: 20px auto 0 auto;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+    line-height: 2em; }
+    div#menu-modal p.button-container {
+      margin-top: 35px; }
+      div#menu-modal p.button-container a {
+        background-color: #588cc9;
+        color: #fff;
+        border-color: transparent;
+        transition: background-color 0.25s ease-in-out;
+        border-radius: 0;
+        padding: 10px 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-family: "brandon-grotesque", sans-serif;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        line-height: 1.5em;
+        font-weight: 700; }
+        @media screen and (min-width: 768px) {
+          div#menu-modal p.button-container a:hover:not([disabled]) {
+            background-color: #4cbb8f; } }
+        div#menu-modal p.button-container a:focus {
+          outline: none; }
+        div#menu-modal p.button-container a[disabled] {
+          opacity: 0.3;
+          background-color: #262626; }
+        @media screen and (max-width: 767px) {
+          div#menu-modal p.button-container a {
+            padding: 7px 35px;
+            font-size: 14px; } }
+    @media screen and (max-width: 767px) {
+      div#menu-modal p {
+        font-size: 16px;
+        margin-top: 14px; }
+        div#menu-modal p.button-container {
+          margin-top: 22px; } }
+
+/*
+** header
+*/
+div#header {
+  min-height: 260px;
+  margin-top: 0;
+  background-color: #f7efe2;
+  padding: 42px 0; }
+  @media screen and (max-width: 767px) {
+    div#header {
+      padding: 30px 0;
+      min-height: 196px; } }
+  div#header div.container {
+    position: relative; }
+  div#header div#menu-icon {
+    border: 1px solid transparent;
+    z-index: 999;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    right: 15px;
+    padding: 2px;
+    transition: background-color 0.25s ease-in-out, border-color 0.25s ease-in-out;
+    cursor: pointer; }
+    div#header div#menu-icon div.menu-bar {
+      right: 2px;
+      position: absolute;
+      transition: background-color 0.25s ease-in-out, right 0.25s ease-in-out;
+      height: 1px;
+      background-color: #262626;
+      right: 0; }
+      div#header div#menu-icon div.menu-bar.menu-bar-top {
+        top: 11px;
+        width: 36px; }
+      div#header div#menu-icon div.menu-bar.menu-bar-middle {
+        top: 19px;
+        width: 27px; }
+      div#header div#menu-icon div.menu-bar.menu-bar-bottom {
+        top: 28px;
+        width: 18px; }
+    div#header div#menu-icon.modal-mode div.menu-bar {
+      background-color: #f7efe2; }
+      div#header div#menu-icon.modal-mode div.menu-bar.menu-bar-middle {
+        right: 9px; }
+      div#header div#menu-icon.modal-mode div.menu-bar.menu-bar-bottom {
+        right: 18px; }
+  div#header div#logo {
+    height: 104px;
+    width: 78px;
+    text-align: center;
+    margin: 0 auto 18px auto;
+    display: none; }
+    div#header div#logo img {
+      height: 100%;
+      width: 100%;
+      display: block; }
+    @media screen and (max-width: 767px) {
+      div#header div#logo {
+        height: 79px;
+        width: 59px;
+        margin-bottom: 12px; } }
+  div#header h1 {
+    font-family: "brandon-grotesque", sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    line-height: 1.5em;
+    margin: 0;
+    text-align: center;
+    display: none; }
+    @media screen and (max-width: 767px) {
+      div#header h1 {
+        font-size: 30px; } }
+
+/*
+** mission
+*/
+div#mission {
+  padding: 42px 0; }
+  @media screen and (max-width: 767px) {
+    div#mission {
+      padding: 30px 0; } }
+  div#mission p {
+    font-size: 22px;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 850px;
+    display: none; }
+    div#mission p strong.red {
+      color: #ef5252; }
+    div#mission p strong.blue {
+      color: #588cc9; }
+    div#mission p strong.green {
+      color: #4cbb8f; }
+    @media screen and (max-width: 767px) {
+      div#mission p {
+        font-size: 18px;
+        padding: 0 20px; } }
+  div#mission p#start-container button {
+    margin-top: 22px;
+    color: #fff;
+    border-color: transparent;
+    animation-duration: 1s;
+    animation-name: button-pulse;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition: animation-name 0.25s ease-in-out;
+    border-radius: 0;
+    padding: 10px 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: "brandon-grotesque", sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    line-height: 1.5em;
+    font-weight: 700; }
+@keyframes button-pulse {
+  from {
+    background-color: #ef5252; }
+  to {
+    background-color: #588cc9; } }
+@keyframes button-hover {
+  from {
+    background-color: #4cbb8f; }
+  to {
+    background-color: #4cbb8f; } }
+@keyframes button-disabled {
+  from {
+    background-color: #262626; }
+  to {
+    background-color: #262626; } }
+    @media screen and (min-width: 768px) {
+      div#mission p#start-container button:hover:not([disabled]) {
+        animation-name: button-hover; } }
+    div#mission p#start-container button[disabled] {
+      opacity: 0.3;
+      animation-name: button-disabled; }
+    div#mission p#start-container button:focus {
+      outline: none; }
+    @media screen and (max-width: 767px) {
+      div#mission p#start-container button {
+        padding: 7px 35px;
+        font-size: 14px; } }
+  div#mission p#controls-container button {
+    margin-top: 22px; }
+    div#mission p#controls-container button#end {
+      background-color: #ef5252;
+      color: #fff;
+      border-color: transparent;
+      transition: background-color 0.25s ease-in-out;
+      border-radius: 0;
+      padding: 10px 50px;
+      margin-left: 10px;
+      margin-right: 10px;
+      font-family: "brandon-grotesque", sans-serif;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      line-height: 1.5em;
+      font-weight: 700; }
+      @media screen and (min-width: 768px) {
+        div#mission p#controls-container button#end:hover:not([disabled]) {
+          background-color: #4cbb8f; } }
+      div#mission p#controls-container button#end:focus {
+        outline: none; }
+      div#mission p#controls-container button#end[disabled] {
+        opacity: 0.3;
+        background-color: #262626; }
+      @media screen and (max-width: 767px) {
+        div#mission p#controls-container button#end {
+          padding: 7px 35px;
+          font-size: 14px; } }
+    div#mission p#controls-container button#restart {
+      background-color: #588cc9;
+      color: #fff;
+      border-color: transparent;
+      transition: background-color 0.25s ease-in-out;
+      border-radius: 0;
+      padding: 10px 50px;
+      margin-left: 10px;
+      margin-right: 10px;
+      font-family: "brandon-grotesque", sans-serif;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      line-height: 1.5em;
+      font-weight: 700; }
+      @media screen and (min-width: 768px) {
+        div#mission p#controls-container button#restart:hover:not([disabled]) {
+          background-color: #4cbb8f; } }
+      div#mission p#controls-container button#restart:focus {
+        outline: none; }
+      div#mission p#controls-container button#restart[disabled] {
+        opacity: 0.3;
+        background-color: #262626; }
+      @media screen and (max-width: 767px) {
+        div#mission p#controls-container button#restart {
+          padding: 7px 35px;
+          font-size: 14px; } }
+
+/*
+** numbers
+*/
+div#numbers-container {
+  padding: 15px 0 42px 0; }
+  div#numbers-container ul.numbers {
+    list-style-type: none;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: center;
+    padding: 0; }
+    div#numbers-container ul.numbers li {
+      margin: 6px;
+      padding: 5px 20px;
+      display: inline-block;
+      font-size: 18px;
+      border: 1px solid transparent;
+      color: #fff;
+      background-color: #262626;
+      font-weight: 400; }
+      @media screen and (max-width: 767px) {
+        div#numbers-container ul.numbers li {
+          margin: 4px;
+          padding: 3px 14px;
+          font-size: 15px; } }
+      div#numbers-container ul.numbers li.normal {
+        font-weight: 300;
+        background-color: #8c8c8c; }
+      div#numbers-container ul.numbers li.fizz {
+        background-color: #ef5252; }
+      div#numbers-container ul.numbers li.buzz {
+        background-color: #588cc9; }
+      div#numbers-container ul.numbers li.fizzbuzz {
+        background-color: #4cbb8f; }
+
+/*
+** footer
+*/
+div#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #262626;
+  color: #fff;
+  z-index: 99999; }
+  div#footer p {
+    height: 50px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+    line-height: 2em;
+    line-height: 50px;
+    text-align: center; }
+
+/*# sourceMappingURL=stylesheet.css.map */
